@@ -24,7 +24,7 @@ class V1::CompaniesController < ApplicationController
       url: params[:url],
       description: params[:description]
     )
-
+    head :bad_request if @company.id.blank?
     @company
     render :unico
   rescue
@@ -37,7 +37,7 @@ class V1::CompaniesController < ApplicationController
     company.ruc = params[:ruc] if params[:ruc]
     company.url = params[:url] if params[:url]
     company.description = params[:description] if params[:description]
-    company.save
+    head :bad_request unless company.save
     company
     render :unico
   rescue
@@ -53,13 +53,11 @@ class V1::CompaniesController < ApplicationController
   end
 
   private
-  
+
   def set_company
-    begin
-      @company = Company.find(params[:id])
-    rescue
-      head :not_found
-    end
+    @company = Company.find(params[:id])
+  rescue
+    head :not_found
   end
 
 end
