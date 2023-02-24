@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  jsonapi_resources :contacts
-  jsonapi_resources :departments
-  jsonapi_resources :companies
+  resources :contacts
+  resources :departments
   
+  namespace :v1 do
+    resources :companies
+  end
 end

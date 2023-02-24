@@ -21,9 +21,6 @@ gem "jbuilder"
 # Enviroment Variables from Dotenv
 gem 'dotenv'
 
-#https://github.com/cerebris/jsonapi-resources
-gem 'jsonapi-resources'
-
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
