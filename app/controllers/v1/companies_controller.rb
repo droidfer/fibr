@@ -32,11 +32,11 @@ class V1::CompaniesController < ApplicationController
   end
 
   def update
-    company.name = params[:name] if params[:name]
-    company.legal_name = params[:legal_name] if params[:legal_name]
-    company.ruc = params[:ruc] if params[:ruc]
-    company.url = params[:url] if params[:url]
-    company.description = params[:description] if params[:description]
+    company.name = params[:company][:name] if params[:company][:name]
+    company.legal_name = params[:company][:legal_name] if params[:company][:legal_name]
+    company.ruc = params[:company][:ruc] if params[:company][:ruc]
+    company.url = params[:company][:url] if params[:company][:url]
+    company.description = params[:company][:description] if params[:company][:description]
     head :bad_request unless company.save
     company
     render :unico
