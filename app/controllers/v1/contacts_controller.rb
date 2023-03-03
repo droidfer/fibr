@@ -11,7 +11,7 @@ class V1::ContactsController < ApplicationController
 
   def show
     contact
-    render :unico
+    render :single
   end
 
   def create
@@ -26,7 +26,7 @@ class V1::ContactsController < ApplicationController
     )
     head :bad_request if @contact.id.blank?
     @contact
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
@@ -41,7 +41,7 @@ class V1::ContactsController < ApplicationController
     contact.company_id = params[:company_id] if params[:company_id]
     head :bad_request unless contact.save
     contact
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
@@ -49,7 +49,7 @@ class V1::ContactsController < ApplicationController
   def destroy
     contact.destroy
     contact
-    render :unico
+    render :single
   rescue
     head :bad_request
   end

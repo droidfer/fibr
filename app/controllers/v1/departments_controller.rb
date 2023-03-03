@@ -11,7 +11,7 @@ class V1::DepartmentsController < ApplicationController
 
   def show
     department
-    render :unico
+    render :single
   end
 
   def create
@@ -21,7 +21,7 @@ class V1::DepartmentsController < ApplicationController
     )
     head :bad_request if @department.id.blank?
     @department
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
@@ -31,7 +31,7 @@ class V1::DepartmentsController < ApplicationController
     department.company_id = params[:company_id] if params[:company_id]
     head :bad_request unless department.save
     department
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
@@ -39,7 +39,7 @@ class V1::DepartmentsController < ApplicationController
   def destroy
     department.destroy
     department
-    render :unico
+    render :single
   rescue
     head :bad_request
   end

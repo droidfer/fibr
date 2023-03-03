@@ -11,7 +11,7 @@ class V1::CompaniesController < ApplicationController
 
   def show
     company
-    render :unico
+    render :single
   rescue
     head :not_found
   end
@@ -26,7 +26,7 @@ class V1::CompaniesController < ApplicationController
     )
     head :bad_request if @company.id.blank?
     @company
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
@@ -39,7 +39,7 @@ class V1::CompaniesController < ApplicationController
     company.description = params[:company][:description] if params[:company][:description]
     head :bad_request unless company.save
     company
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
@@ -47,7 +47,7 @@ class V1::CompaniesController < ApplicationController
   def destroy
     company.destroy
     company
-    render :unico
+    render :single
   rescue
     head :bad_request
   end
