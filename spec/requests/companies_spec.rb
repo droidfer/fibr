@@ -18,9 +18,10 @@ RSpec.describe "Companies", type: :request do
                          object: "company",
                          id: company.id,
                          name: company.name,
-                         ruc: 'tax_id 123232',
-                         url: "https://company_telco.com/",
-                         description: 'Telecom Company'
+                         legal_name: company.legal_name,
+                         ruc: company.ruc,
+                         url: company.url,
+                         description: company.description
                        })
   end
   
@@ -36,9 +37,10 @@ RSpec.describe "Companies", type: :request do
                          object: "company",
                          id: company.id,
                          name: company.name,
-                         ruc: 'tax_123',
-                         url: "https://company_telco.com/",
-                         description: 'Telecom Company'
+                         legal_name: company.legal_name,
+                         ruc: company.ruc,
+                         url: company.url,
+                         description: company.description
                        })
     
   end
