@@ -25,11 +25,11 @@ class V1::ContactsController < ApplicationController
 
   def update
     contact.name = contact_params[:name] if contact_params[:name]
-    contact.company_id = contact_params[:title] if contact_params[:title]
-    contact.company_id = contact_params[:landline] if contact_params[:landline]
-    contact.company_id = contact_params[:mobile_phone] if contact_params[:mobile_phone]
-    contact.company_id = contact_params[:email] if contact_params[:company_id]
-    contact.company_id = contact_params[:department_id] if contact_params[:department_id]
+    contact.title = contact_params[:title] if contact_params[:title]
+    contact.landline = contact_params[:landline] if contact_params[:landline]
+    contact.mobile_phone = contact_params[:mobile_phone] if contact_params[:mobile_phone]
+    contact.email = contact_params[:email] if contact_params[:email]
+    contact.department_id = contact_params[:department_id] if contact_params[:department_id]
     contact.company_id = contact_params[:company_id] if contact_params[:company_id]
     head :bad_request unless contact.save
     contact
