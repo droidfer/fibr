@@ -6,7 +6,11 @@
   json.email @contact.email
   json.landline @contact.landline
   json.mobile_phone @contact.mobile_phone
-  json.department @contact.department.name
+  
+  json.department do
+    json.id @contact.department.id
+    json.name @contact.department.name
+  end
   
   json.company do
     json.id @contact.company.id

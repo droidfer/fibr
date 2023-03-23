@@ -1,7 +1,7 @@
 class V1::ContactsController < ApplicationController
   attr_accessor :contact
 
-  before_action :set_contact, only: [:show, :update, :destroy]
+  before_action :set_contact, only: [:show, :update, :destroy, :departments]
 
   def index
     @contacts = Contact.all
@@ -44,6 +44,11 @@ class V1::ContactsController < ApplicationController
     render :single
   rescue
     head :bad_request
+  end
+
+  def departments
+    @departs = contact.company.departments
+    render json: @departs
   end
 
   private
