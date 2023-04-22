@@ -21,7 +21,8 @@ RSpec.describe "Companies", type: :request do
                          legal_name: company.legal_name,
                          ruc: company.ruc,
                          url: company.url,
-                         description: company.description
+                         description: company.description,
+                         contacts: company.contacts
                        })
   end
   
@@ -40,7 +41,8 @@ RSpec.describe "Companies", type: :request do
                          legal_name: company.legal_name,
                          ruc: company.ruc,
                          url: company.url,
-                         description: company.description
+                         description: company.description,
+                         contacts: company.contacts
                        })
     
   end
